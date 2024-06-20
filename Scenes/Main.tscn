@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://by27l3sv2og1d"]
+
+[ext_resource type="TileSet" uid="uid://ddycqlbiqwncq" path="res://Assets/Tiles/new_tile_set.tres" id="1_o77c5"]
+[ext_resource type="Script" path="res://Scenes/Player.gd" id="2_2u3hd"]
+[ext_resource type="Texture2D" uid="uid://ritjp8fddr3m" path="res://Assets/Player/character_0004.png" id="2_guno4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qpnke"]
+size = Vector2(6, 14.5)
+
+[node name="Node" type="Node"]
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource("1_o77c5")
+rendering_quadrant_size = 18
+format = 2
+layer_0/tile_data = PackedInt32Array(65537, 65537, 0, 65538, 131073, 0, 65539, 131073, 0, 65540, 131073, 0, 65541, 131073, 0, 65542, 131073, 0, 65543, 131073, 0, 65544, 131073, 0, 65545, 131073, 0, 65546, 131073, 0, 65547, 131073, 0, 65548, 131073, 0, 65549, 131073, 0, 65550, 131073, 0, 65551, 196609, 0)
+
+[node name="Player" type="CharacterBody2D" parent="."]
+position = Vector2(101, -47)
+script = ExtResource("2_2u3hd")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player"]
+texture = ExtResource("2_guno4")
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+position = Vector2(0, 4.75)
+shape = SubResource("RectangleShape2D_qpnke")

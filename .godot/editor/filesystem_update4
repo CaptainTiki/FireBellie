@@ -1,0 +1,4 @@
+res://Assets/Tiles/new_tile_set.tres
+res://Maps/Map1.tscn
+res://Scenes/Main.tscn
+res://Scenes/Player.gd
