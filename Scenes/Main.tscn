@@ -1,11 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://by27l3sv2og1d"]
+[gd_scene load_steps=6 format=3 uid="uid://by27l3sv2og1d"]
 
 [ext_resource type="TileSet" uid="uid://ddycqlbiqwncq" path="res://Assets/Tiles/new_tile_set.tres" id="1_o77c5"]
-[ext_resource type="Script" path="res://Scenes/Player.gd" id="2_2u3hd"]
-[ext_resource type="Texture2D" uid="uid://ritjp8fddr3m" path="res://Assets/Player/character_0004.png" id="2_guno4"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_qpnke"]
-size = Vector2(6, 14.5)
+[ext_resource type="PackedScene" uid="uid://du4wbrbfhyj4h" path="res://Scenes/player.tscn" id="2_mysjr"]
+[ext_resource type="PackedScene" uid="uid://cyxsb6gt1eejs" path="res://Scenes/gameCamera.tscn" id="3_vaq3r"]
+[ext_resource type="Script" path="res://Scenes/gameCamera.gd" id="4_f5bto"]
+[ext_resource type="PackedScene" uid="uid://drarg45n1f741" path="res://Scenes/coin.tscn" id="5_m00lg"]
 
 [node name="Node" type="Node"]
 
@@ -13,17 +12,24 @@ size = Vector2(6, 14.5)
 tile_set = ExtResource("1_o77c5")
 rendering_quadrant_size = 18
 format = 2
-layer_0/tile_data = PackedInt32Array(65537, 65537, 0, 65538, 131073, 0, 65539, 131073, 0, 65540, 131073, 0, 65541, 131073, 0, 65542, 131073, 0, 65543, 131073, 0, 65544, 131073, 0, 65545, 131073, 0, 65546, 131073, 0, 65547, 131073, 0, 65548, 131073, 0, 65549, 131073, 0, 65550, 131073, 0, 65551, 196609, 0)
+layer_0/tile_data = PackedInt32Array(65537, 1, 9, 65538, 65537, 9, 65539, 65537, 9, 65540, 65537, 9, 65541, 65537, 9, 65542, 65537, 9, 65543, 65537, 9, 65544, 65537, 9, 65545, 65537, 9, 65546, 65537, 9, 65547, 65537, 9, 65549, 262145, 10, 65550, 65537, 10, 65551, 131073, 10, 13, 1, 10, -65523, 1, 10, -131059, 1, 9, -131058, 65537, 9, -131057, 131073, 9, -65521, 131073, 10, 15, 131073, 10, 14, 65537, 10, -65522, 65537, 10, -196600, 131073, 11, -196601, 65537, 11, -196602, 65537, 11, -196603, 65537, 11, -196604, 1, 11, 65548, 65537, 9, -262140, 1, 9, -262139, 65537, 9, -262138, 65537, 9, -262137, 65537, 9, -262136, 131073, 9, 131073, 1, 11, 131074, 65537, 11, 131075, 65537, 11, 131076, 65537, 11, 131077, 65537, 11, 131078, 65537, 11, 131079, 65537, 11, 131080, 65537, 11, 131081, 65537, 11, 131082, 65537, 11, 131083, 65537, 11, 131084, 65537, 11, 131085, 65537, 11, 131086, 65537, 11, 131087, 131073, 11)
 
-[node name="Player" type="CharacterBody2D" parent="."]
-position = Vector2(101, -47)
-script = ExtResource("2_2u3hd")
+[node name="Player" parent="." instance=ExtResource("2_mysjr")]
+position = Vector2(32, 16)
 
-[node name="Sprite2D" type="Sprite2D" parent="Player"]
-texture = ExtResource("2_guno4")
+[node name="Camera2D" parent="." instance=ExtResource("3_vaq3r")]
+position = Vector2(78.9327, -49.5939)
+script = ExtResource("4_f5bto")
+backgroundColor = Color(0.0812436, 0.0988062, 0.145456, 1)
 
-[node name="Camera2D" type="Camera2D" parent="Player"]
+[node name="Coin" parent="." instance=ExtResource("5_m00lg")]
+position = Vector2(64, 0)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
-position = Vector2(0, 4.75)
-shape = SubResource("RectangleShape2D_qpnke")
+[node name="Coin2" parent="." instance=ExtResource("5_m00lg")]
+position = Vector2(208, 0)
+
+[node name="Coin3" parent="." instance=ExtResource("5_m00lg")]
+position = Vector2(128, -88)
+
+[node name="Coin4" parent="." instance=ExtResource("5_m00lg")]
+position = Vector2(96, -88)

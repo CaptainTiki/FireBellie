@@ -1,0 +1,66 @@
+[gd_scene load_steps=7 format=3 uid="uid://du4wbrbfhyj4h"]
+
+[ext_resource type="Script" path="res://Scenes/Player.gd" id="1_1e6i2"]
+[ext_resource type="Texture2D" uid="uid://ritjp8fddr3m" path="res://Assets/Player/character_0004.png" id="2_wmljy"]
+[ext_resource type="Texture2D" uid="uid://d2amqnu3w7wrh" path="res://Assets/Player/character_0005.png" id="3_qjh53"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7plon"]
+radius = 13.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qpnke"]
+size = Vector2(6, 14.5)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qyjrp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_wmljy")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_qjh53")
+}],
+"loop": true,
+"name": &"Jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_wmljy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_qjh53")
+}],
+"loop": true,
+"name": &"Run",
+"speed": 7.0
+}]
+
+[node name="Player" type="CharacterBody2D" groups=["Player"]]
+script = ExtResource("1_1e6i2")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 128
+collision_mask = 128
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -13)
+shape = SubResource("CircleShape2D_7plon")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -7.25)
+shape = SubResource("RectangleShape2D_qpnke")
+
+[node name="CoyoteTimer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -12)
+sprite_frames = SubResource("SpriteFrames_qyjrp")
+animation = &"Run"
+frame_progress = 0.275572
