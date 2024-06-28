@@ -8,6 +8,10 @@ func _ready():
 
 
 
-func on_area_entered(area2d):
-	queue_free()
+func on_area_entered(_area2d):
+	$AnimationPlayer.play("Pickup")
+	call_deferred("disable_pickup")
 	pass
+
+func disable_pickup() -> void:
+	$Area2D/CollisionShape2D.disabled = true
