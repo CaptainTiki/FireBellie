@@ -1,8 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://du4wbrbfhyj4h"]
+[gd_scene load_steps=8 format=3 uid="uid://du4wbrbfhyj4h"]
 
 [ext_resource type="Script" path="res://Scenes/Player.gd" id="1_1e6i2"]
 [ext_resource type="Texture2D" uid="uid://ritjp8fddr3m" path="res://Assets/Player/character_0004.png" id="2_wmljy"]
 [ext_resource type="Texture2D" uid="uid://d2amqnu3w7wrh" path="res://Assets/Player/character_0005.png" id="3_qjh53"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nq5nt"]
+size = Vector2(10, 18)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7plon"]
 radius = 13.0
@@ -43,11 +46,20 @@ animations = [{
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 script = ExtResource("1_1e6i2")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="HazardArea" type="Area2D" parent="."]
+collision_layer = 64
+collision_mask = 64
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HazardArea"]
+position = Vector2(0, -9)
+shape = SubResource("RectangleShape2D_nq5nt")
+
+[node name="PickupArea" type="Area2D" parent="."]
 collision_layer = 128
 collision_mask = 128
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PickupArea"]
+visible = false
 position = Vector2(0, -13)
 shape = SubResource("CircleShape2D_7plon")
 

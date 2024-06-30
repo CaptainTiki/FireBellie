@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+signal died
+
 @export var maxHorizontalSpeed : int = 250
 @export var horizontalAcceleration : int = 1200
 @export var jumpVelocity : int = -450
@@ -8,6 +10,10 @@ var hasDoubleJump
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 @export var gravity : float = ProjectSettings.get_setting("physics/2d/default_gravity")
+
+func _ready() -> void:
+	$HazardArea.connect("area_entered", on_hazard_area_entered)
+
 
 func _process(_delta):
 	var wasOnFloor = is_on_floor()
@@ -61,3 +67,7 @@ func update_animation(moveVec):
 	if (moveVec != 0): #don't run unless input is pressed
 		$AnimatedSprite2D.flip_h = true if moveVec > 0 else false
 			
+
+func on_hazard_area_entered(_a : Area2D) -> void:
+	emit_signal("died")
+	pass

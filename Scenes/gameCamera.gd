@@ -16,4 +16,3 @@ func _aquire_target_position():
 	if (players.size() > 0):
 		var player = players[0]
 		targetPosition = player.global_position
-		print(player)

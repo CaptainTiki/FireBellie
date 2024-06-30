@@ -1,11 +1,11 @@
-AnimationPlayer
+Node
 CollisionShape2D
 Area2D
-AnimatedSprite2D
 Sprite2D
+AnimationPlayer
+AnimatedSprite2D
 Timer
 DampedSpringJoint2D
 Camera2D
 CharacterBody2D
 TileMap
-Node
