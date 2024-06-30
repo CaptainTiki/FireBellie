@@ -1,10 +1,7 @@
-res://Scenes/Main.tscn
 res://Assets/Tiles/new_tile_set.tres
-res://Scenes/player.tscn
-res://Scenes/coin.tscn
-res://Assets/Spikes/spikes.tscn
-res://Scenes/spikes.tscn
-res://Scenes/Player.gd
-res://Scenes/gameCamera.gd
+res://Assets/enemy/enemy.tscn
+res://Assets/enemy/enemy.gd
 res://Scenes/base_level.tscn
+res://Scenes/player.tscn
 res://Scenes/base_level.gd
+res://Scenes/enemy_goal.tscn

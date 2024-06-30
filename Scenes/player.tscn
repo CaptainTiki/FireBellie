@@ -44,6 +44,7 @@ animations = [{
 }]
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
+collision_layer = 0
 script = ExtResource("1_1e6i2")
 
 [node name="HazardArea" type="Area2D" parent="."]
