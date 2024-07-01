@@ -1,14 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://d113mi37topse"]
+[gd_scene load_steps=7 format=3 uid="uid://d113mi37topse"]
 
 [ext_resource type="TileSet" uid="uid://ddycqlbiqwncq" path="res://Assets/Tiles/new_tile_set.tres" id="1_mwwxf"]
 [ext_resource type="Script" path="res://Scenes/base_level.gd" id="1_sy4sd"]
 [ext_resource type="PackedScene" uid="uid://du4wbrbfhyj4h" path="res://Scenes/player.tscn" id="2_21soh"]
+[ext_resource type="PackedScene" uid="uid://efnbsp1qihkf" path="res://Scenes/flag.tscn" id="3_f77ib"]
 [ext_resource type="PackedScene" uid="uid://cyxsb6gt1eejs" path="res://Scenes/gameCamera.tscn" id="3_q5a6m"]
 [ext_resource type="Script" path="res://Scenes/gameCamera.gd" id="4_sbpfp"]
-[ext_resource type="PackedScene" uid="uid://drarg45n1f741" path="res://Scenes/coin.tscn" id="5_tx5f2"]
-[ext_resource type="PackedScene" uid="uid://r11j3ixqux20" path="res://Scenes/spikes.tscn" id="6_aetof"]
-[ext_resource type="PackedScene" uid="uid://blqxs2wx6ham3" path="res://Assets/enemy/enemy.tscn" id="8_4msan"]
-[ext_resource type="PackedScene" uid="uid://bb7vrg5iqgs5n" path="res://Scenes/enemy_goal.tscn" id="9_0p760"]
 
 [node name="BaseLevel" type="Node"]
 script = ExtResource("1_sy4sd")
@@ -17,58 +14,22 @@ script = ExtResource("1_sy4sd")
 tile_set = ExtResource("1_mwwxf")
 rendering_quadrant_size = 18
 format = 2
-layer_0/tile_data = PackedInt32Array(65537, 1, 9, 65538, 65537, 9, 65539, 65537, 9, 65540, 65537, 9, 65541, 65537, 9, 65542, 65537, 9, 65543, 65537, 9, 65544, 65537, 9, 65545, 65537, 9, 65546, 65537, 9, 65547, 65537, 9, 65549, 262145, 10, 65550, 65537, 10, 65551, 131073, 10, 13, 1, 10, -65523, 1, 10, -131059, 1, 9, -131058, 65537, 9, -131057, 131073, 9, -65521, 196609, 10, 15, 196609, 9, 14, 65537, 10, -65522, 65537, 10, -196600, 131073, 11, -196601, 65537, 11, -196602, 65537, 11, -196603, 65537, 11, -196604, 1, 11, 65548, 65537, 9, -262140, 1, 9, -262139, 65537, 9, -262138, 65537, 9, -262137, 65537, 9, -262136, 131073, 9, 131073, 1, 11, 131074, 65537, 11, 131075, 65537, 11, 131076, 65537, 11, 131077, 65537, 11, 131078, 65537, 11, 131079, 65537, 11, 131080, 65537, 11, 131081, 65537, 11, 131082, 65537, 11, 131083, 65537, 11, 131084, 65537, 11, 131085, 65537, 11, 131086, 65537, 11, 131087, 131073, 11, -65520, 65537, 9, -65519, 65537, 9, -65518, 65537, 9, -65517, 65537, 9, -65516, 65537, 9, 20, 65537, 11, 19, 65537, 11, 18, 65537, 11, 17, 65537, 11, 16, 65537, 11, -196587, 1, 9, -131051, 1, 10, -65515, 262145, 10, 21, 65537, 11, 22, 65537, 11, 23, 65537, 11, -65513, 65537, 10, -131049, 65537, 10, -131050, 65537, 10, -65514, 65537, 10, -196586, 65537, 9, -196585, 65537, 9, -196584, 65537, 9, -196583, 65537, 9, -196582, 131073, 9, -131046, 131073, 10, -131047, 65537, 10, -131048, 65537, 10, -65512, 65537, 10, -65511, 65537, 10, -65510, 131073, 10, 26, 131073, 11, 25, 65537, 11, 24, 65537, 11)
+
+[node name="Flag" parent="." instance=ExtResource("3_f77ib")]
 
 [node name="Camera2D" parent="." instance=ExtResource("3_q5a6m")]
-position = Vector2(78.9327, -49.5939)
+position = Vector2(0, -2)
 script = ExtResource("4_sbpfp")
 backgroundColor = Color(0.0812436, 0.0988062, 0.145456, 1)
 
 [node name="Coins" type="Node" parent="."]
 
-[node name="Coin" parent="Coins" instance=ExtResource("5_tx5f2")]
-position = Vector2(64, 0)
-
-[node name="Coin2" parent="Coins" instance=ExtResource("5_tx5f2")]
-position = Vector2(208, 0)
-
-[node name="Coin3" parent="Coins" instance=ExtResource("5_tx5f2")]
-position = Vector2(128, -88)
-
-[node name="Coin4" parent="Coins" instance=ExtResource("5_tx5f2")]
-position = Vector2(96, -88)
-
 [node name="Spikes" type="Node" parent="."]
-
-[node name="Spikes1" parent="Spikes" instance=ExtResource("6_aetof")]
-position = Vector2(296, -16)
-
-[node name="Spikes2" parent="Spikes" instance=ExtResource("6_aetof")]
-position = Vector2(312, -16)
-
-[node name="Spikes3" parent="Spikes" instance=ExtResource("6_aetof")]
-position = Vector2(328, -16)
-
-[node name="Spikes4" parent="Spikes" instance=ExtResource("6_aetof")]
-position = Vector2(344, -16)
-
-[node name="Spikes5" parent="Spikes" instance=ExtResource("6_aetof")]
-position = Vector2(360, -16)
 
 [node name="Enemies" type="Node" parent="."]
 
-[node name="Enemy" parent="Enemies" instance=ExtResource("8_4msan")]
-position = Vector2(176, 16)
+[node name="EnemyGoals" type="Node" parent="Enemies"]
 
 [node name="PlayerSpawn" type="Node" parent="."]
 
 [node name="Player" parent="PlayerSpawn" instance=ExtResource("2_21soh")]
-position = Vector2(32, 16)
-
-[node name="EnemyGoals" type="Node" parent="."]
-
-[node name="EnemyGoal" parent="EnemyGoals" instance=ExtResource("9_0p760")]
-position = Vector2(242, 20)
-
-[node name="EnemyGoal2" parent="EnemyGoals" instance=ExtResource("9_0p760")]
-position = Vector2(14, 20)

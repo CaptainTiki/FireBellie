@@ -1,0 +1,47 @@
+[gd_scene load_steps=7 format=3 uid="uid://efnbsp1qihkf"]
+
+[ext_resource type="Script" path="res://Scenes/flag.gd" id="1_ufuva"]
+[ext_resource type="Texture2D" uid="uid://bxq6tuxrty1y2" path="res://Assets/Flag/tile_0131.png" id="2_hoeaw"]
+[ext_resource type="Texture2D" uid="uid://bwab5q6f2nn04" path="res://Assets/Flag/tile_0111.png" id="3_bokrf"]
+[ext_resource type="Texture2D" uid="uid://ddwcdpldlyo2c" path="res://Assets/Flag/tile_0112.png" id="4_2koys"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uapvc"]
+size = Vector2(15, 36)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ksk4x"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_bokrf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_2koys")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
+
+[node name="Flag" type="Node2D"]
+script = ExtResource("1_ufuva")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 128
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(3, -18)
+shape = SubResource("RectangleShape2D_uapvc")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_hoeaw")
+centered = false
+offset = Vector2(0, -18)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -18)
+sprite_frames = SubResource("SpriteFrames_ksk4x")
+autoplay = "default"
+frame_progress = 0.114415
+centered = false
+offset = Vector2(0, -18)

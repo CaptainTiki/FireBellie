@@ -11,6 +11,7 @@ var direct = Vector2.ZERO
 func _ready() -> void:
 	direction = Vector2.RIGHT if startDirection == Direction.RIGHT else Vector2.LEFT
 	$GoalDetector.connect("area_entered", on_goal_entered)
+	$Hurtbox.connect("area_entered", on_hurtbox_entered)
 
 func _process(_delta: float) -> void:
 	$AnimatedSprite2D.flip_h = true if direction.x > 0 else false
@@ -24,3 +25,7 @@ func _physics_process(delta: float) -> void:
 func on_goal_entered(_area2D)-> void:
 	direction *= -1
 	pass
+
+func on_hurtbox_entered(_area2D) -> void:
+	prints("enemy hurt")
+	queue_free()

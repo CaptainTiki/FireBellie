@@ -1,7 +1,7 @@
-res://Assets/Tiles/new_tile_set.tres
-res://Assets/enemy/enemy.tscn
-res://Assets/enemy/enemy.gd
-res://Scenes/base_level.tscn
 res://Scenes/player.tscn
-res://Scenes/base_level.gd
-res://Scenes/enemy_goal.tscn
+res://Scenes/Player.gd
+res://Assets/Tiles/new_tile_set.tres
+res://Scenes/flag.tscn
+res://Scenes/flag.gd
+res://Scenes/base_level.tscn
+res://Levels/level_001.tscn
